@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Media ejemplos</title>
+  </head>
+  <body>
+    <h1>VIDEO</h1>
+    <div style="text-align: center;">
+      <button onclick="playPause()">Reproducir/Pausar</button>
+      <button onclick="Big()">Grande</button>
+      <button onclick="Normal()">Normal</button>
+      <button onclick="Small()">Pequeno</button>
+      <br /><br />
+
+      <video id="conejo1" width="400" controls>
+        <source src="archivos/conejo.mp4" type="video/mp4" />
+        Su buscador no soporta el video HTML
+      </video>
+    </div>
+    <script>
+      var myVideo = document.getElementById("conejo1");
+
+      function playPause() {
+        if (myVideo.paused) myVideo.play();
+        else myVideo.pause();
+      }
+
+      function Big() {
+        myVideo.width = 560;
+      }
+
+      function Small() {
+        myVideo.width = 320;
+      }
+
+      function Normal() {
+        myVideo.width = 420;
+      }
+    </script>
+    <p>
+      Video de cortecia de
+      <a href="https://www.bigbuckbunny.org/" target="_blank">
+        Gran conejo Buck</a
+      >
+    </p>
+<hr>
+    <h1>Audio HTML</h1>
+    <audio controls>
+        <source src="archivos/Perfect.m4a" type="audio/mp4">
+      Su buscador no soporta el elemento audio.
+      </audio>
+  </body>
+</html>

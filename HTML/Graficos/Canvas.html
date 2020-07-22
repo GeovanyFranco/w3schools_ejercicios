@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Canvas</title>
+  </head>
+
+  <body>
+      <h1>Gráficos HTML Canvas</h1>
+    <!-- declaracion de un canvas -->
+    <h2>Declaracion</h2>
+
+    <canvas id="myCanvas1" width="200" height="100"></canvas>
+
+    <!-- EJEMPLO -->
+    <h2>Ejemplo con linea</h2>
+
+    <!-- Dibujando una linea -->
+    <canvas
+      id="linea"
+      width="200"
+      height="100"
+      style="border: 3px solid aquamarine;"
+      >Tu navegador no soporta la Etiquieta HTML canvas
+    </canvas>
+    <script>
+      var c = document.getElementById("linea");
+      var ctx = c.getContext("2d");
+      ctx.moveTo(0, 0);
+      ctx.lineTo(200, 100);
+      ctx.stroke();
+    </script>
+
+    <!-- Dibujando un circulo -->
+    <h2>Ejemplo con circulo</h2>
+    <canvas
+      id="criculo"
+      width="200"
+      height="100"
+      style="border: 3px solid aquamarine;"
+      >Tu navegador no soporta la Etiquieta HTML canvas
+    </canvas>
+    <script>
+      var c = document.getElementById("criculo");
+      var ctx = c.getContext("2d");
+      ctx.beginPath();
+      ctx.arc(95, 50, 40, 0, 2 * Math.PI);
+      ctx.stroke();
+    </script>
+
+    <!-- Dibujando un texto -->
+    <h2>Ejemplo con texto</h2>
+    <canvas
+      id="nombre"
+      width="200"
+      height="100"
+      style="border: 3px solid aquamarine;"
+      >Tu navegador no soporta la Etiquieta HTML canvas
+    </canvas>
+    <script>
+      var c = document.getElementById("nombre");
+      var ctx = c.getContext("2d");
+      ctx.font = "30px Arial";
+      ctx.fillText("Emilia R", 45, 60);
+    </script>
+
+    <!-- Dibujando un texto con trazo-->
+    <h2>Ejemplo con texto con trazo</h2>
+    <canvas
+      id="trazo"
+      width="200"
+      height="100"
+      style="border: 3px solid aquamarine;"
+      >Tu navegador no soporta la Etiquieta HTML canvas
+    </canvas>
+    <script>
+      var c = document.getElementById("trazo");
+      var ctx = c.getContext("2d");
+      ctx.font = "45px Arial";
+      ctx.strokeText("Emilia R", 15, 65);
+    </script>
+
+    <!-- Dibujando un degradado lineal -->
+    <h2>Dibujar degradado lineal</h2>
+    <canvas
+      id="degradado"
+      width="200"
+      height="100"
+      style="border: 3px solid aquamarine;"
+      >Tu navegador no soporta la Etiquieta HTML canvas
+    </canvas>
+    <script>
+      var c = document.getElementById("degradado");
+      var ctx = c.getContext("2d");
+
+      //   crear gradiante
+      var grd = ctx.createLinearGradient(0, 0, 200, 0);
+      grd.addColorStop(0, "blue");
+      grd.addColorStop(1, "aquamarine");
+
+      // llenar gradiante
+      ctx.fillStyle = grd;
+      ctx.fillRect(25, 10, 150, 80);
+    </script>
+
+    <!-- Dibujando un degradado circular -->
+    <h2>Dibujar degradado circular</h2>
+    <canvas
+      id="circular"
+      width="200"
+      height="100"
+      style="border: 3px solid aquamarine;"
+      >Tu navegador no soporta la Etiquieta HTML canvas
+    </canvas>
+    <script>
+      var c = document.getElementById("circular");
+      var ctx = c.getContext("2d");
+
+      //   crear gradiante
+      var grd = ctx.createRadialGradient(75, 50, 5, 90, 60, 100);
+      grd.addColorStop(0, "aquamarine");
+      grd.addColorStop(1, "blue");
+
+      // llenar gradiante
+      ctx.fillStyle = grd;
+      ctx.fillRect(25, 10, 150, 80);
+    </script>
+
+    <!-- Dibujando una imagen -->
+    <h2>Dibujar una imagen</h2>
+    <p>Imagen para usar:</p>
+    <img
+      id="tulipanes"
+      src="tulipanes.jpg"
+      alt="tulipanes"
+      width="200"
+      height="150"
+    />
+    <p>Llena el canvas</p>
+    <canvas
+      id="imagen"
+      width="200"
+      height="150"
+      style="border: 2px solid aquamarine;"
+      >Tu navegador no soporta la Etiquieta HTML canvas
+    </canvas>
+    <p><button onclick="imagen()">Intentar</button></p>
+    <script>
+        function imagen(){
+            var c=document.getElementById("imagen");
+            var ctx=c.getContext("2d");
+            var img = document.getElementById("tulipanes");
+            ctx.drawImage(img,0,0);
+            // redimencionar imagen
+        }
+    </script>
+  </body>
+</html>
