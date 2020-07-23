@@ -45,11 +45,53 @@
         Gran conejo Buck</a
       >
     </p>
-<hr>
+    <hr />
     <h1>Audio HTML</h1>
     <audio controls>
-        <source src="archivos/Perfect.m4a" type="audio/mp4">
+      <source src="archivos/Perfect.m4a" type="audio/mp4" />
       Su buscador no soporta el elemento audio.
-      </audio>
+    </audio>
+    <hr />
+    <h1>Plug-ins</h1>
+
+    <h2>Elemento Object incrusta HTML</h2>
+    <object width="100%" height="500px" data="texto.html" type=""></object>
+
+    <h2>Object incrustando una imagen</h2>
+    <object data="archivos/tulipanes.jpg" width="200" height="auto"></object>
+    <h2>El elemento embed</h2>
+    <embed src="archivos/anillo.jpeg" width="25%" height="25%" />
+    <h2>Embed html</h2>
+    <embed width="100%" height="100%" src="texto.html" />
+
+    <h1>Videos de YouTube</h1>
+    <iframe
+      width="497"
+      height="280"
+      src="https://www.youtube.com/embed/2Vv-BfVoq4g"
+    ></iframe>
+
+    <h1>Reproduccion automatica</h1>
+    <iframe
+      width="497"
+      height="280"
+      src="https://www.youtube.com/embed/2Vv-BfVoq4g?autoplay=1"
+    ></iframe>
+
+    <h1>Bucle</h1>
+    <!-- valor 0: reproduce una sola vez. -->
+    <!-- valor 1: repeticion infinita. -->
+    <iframe
+    width="497"
+    height="280"
+      src="https://www.youtube.com/embed/2Vv-BfVoq4g&loop=0"
+    ></iframe>
+    
+    <h1>Controles</h1>
+    <iframe
+      width="497"
+      height="280"
+      src="https://www.youtube.com/embed/2Vv-BfVoq4g?controls=1"
+    ></iframe>
   </body>
-</html>
+  </html>
