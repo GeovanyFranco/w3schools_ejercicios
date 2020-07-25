@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,26 +7,27 @@
   </head>
   <body>
     <h1>Latitud y longitud</h1>
-    <p>Click sobre el boton para ver tus coordenadas</p>
-    <button onclick="getLocation()">Intentar</button>
+    <hr />
+    <button onclick="getLocation()">Obtener posicion</button>
     <p id="demo"></p>
 
     <script>
       var x = document.getElementById("demo");
+
       function getLocation() {
         if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(showPosition);
         } else {
-          x.innerHTML = "El navegador no soporta la geolocalizacion.";
+          x.innerHTML = "El navegador no soporta la geolocalizacion";
         }
-      }
 
-      function showPosition(position) {
-        x.innerHTML =
-          "Latitud: " +
-          position.coords.latitude +
-          "<br>Longitude: " +
-          position.coords.longitude;
+        function showPosition(position) {
+          x.innerHTML =
+            "Latitud: " +
+            position.coords.latitude +
+            "<br>Longitud: " +
+            position.coords.longitude;
+        }
       }
     </script>
   </body>

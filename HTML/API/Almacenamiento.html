@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Almacenamiento</title>
+    <style>
+      #nombre,
+      #apellido {
+        font-size: 50px;
+        color: darkcyan;
+        text-shadow: bisque;
+        border-color: black;
+        background-color: aquamarine;
+        width: fit-content;
+      }
+    </style>
+    <!-- para session -->
+    <script>
+      function clickCounter() {
+        if (typeof Storage !== "undefined") {
+          if (sessionStorage.clickcount) {
+            sessionStorage.clickcount = Number(sessionStorage.clickcount) + 1;
+          } else {
+            sessionStorage.clickcount = 1;
+          }
+          document.getElementById("login").innerHTML =
+            "You have clicked the button " +
+            sessionStorage.clickcount +
+            " time(s) in this session.";
+        } else {
+          document.getElementById("login").innerHTML =
+            "Sorry, your browser does not support web storage...";
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <h1>LocalStorage</h1>
+    <div id="nombre"></div>
+    <script>
+      if (typeof Storage !== "undefined") {
+        // Almacenamiento
+        localStorage.setItem("lastname", "Emilia");
+        // Respuesta
+        document.getElementById("nombre").innerHTML = localStorage.getItem(
+          "lastname"
+        );
+      } else {
+        document.getElementById("nombre").innerHTML =
+          "Perdon, tu navegador no soporta el almacenamiento web";
+      }
+    </script>
+    <br />
+    <div id="apellido">
+      a
+      <script>
+        if (typeof Storage !== "undefined") {
+          // Almacenamiento
+          localStorage.apellido = "Recinos";
+          // Respuesta
+          document.getElementById("apellido").innerHTML = localStorage.apellido;
+        } else {
+          document.getElementById("apellido").innerHTML =
+            "Perdon, tu navegador no soporta el almacenamiento web";
+        }
+      </script>
+    </div>
+    <hr />
+    <h1>Probando un sessionStorage</h1>
+    <p><button onclick="clickCounter()" type="button">Click aqui!</button></p>
+    <div id="login"></div>
+    <p>Click sobre el boton para ver el contador aumentar</p>
+    <p>
+      Cerrar el buscador o la ventana y probrar de nuevo, con el contador
+      reiniciado
+    </p>
+  </body>
+</html>

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mapa</title>
+  </head>
+  <body>
+    <h1>Ejemplo w3school</h1>
+
+    <p>Click sobre el boton para obtener tus coordenadas</p>
+    <button onclick="getLocation()">Obtener coordenadas</button>
+
+    <p id="demo"></p>
+    <p id="mapholder"></p>
+    
+    <script>
+      var x = document.getElementById("demo");
+
+      function getLocation() {
+        if (navigator.getLocation) {
+          navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+          x.innerHTML = "El navegador no sopora la geolocalizacion";
+        }
+        
+        function showPosition(position) {
+          var latlon =
+            position.coords.latitude + "," + position.coords.longitude;
+
+          var img_url =
+            "https://maps.googleapis.com/maps/api/staticmap?center=" +
+            latlon +
+            "&zoom=14&size=400x300&sensor=false&key=YOUR_KEY";
+
+          document.getElementById("mapholder").innerHTML =
+            "<img src='" + img_url + "'>";
+        }
+      }
+    </script>
+    <hr />
+    <h1>Mostrar posicion en un mapa</h1>
+    <hr />
+    <h2>Insertar mapas o indicaciones</h2>
+    <ol>
+      <li>
+        Abre
+        <a href="https://www.google.com/maps" target="_blank" rel="noopener"
+          >Google&nbsp;Maps</a
+        >
+        en el ordenador.
+      </li>
+      <li>
+        Accede a las indicaciones, al mapa o a la imagen de Street&nbsp;View que
+        quieras compartir.
+      </li>
+      <li>
+        En la parte superior izquierda, haz clic en Menú&nbsp;<img
+          src="//storage.googleapis.com/support-kms-prod/CD148BFC3EE3B5328DAFE08E2B6AA95B73B7"
+          width="18"
+          height="18"
+          alt="Menú"
+          title="Menú"
+        />.
+      </li>
+      <li>
+        Selecciona <strong>Compartir o insertar el mapa</strong>. Si no aparece
+        esta opción, haz clic en <strong>Obtener enlace a este mapa</strong>.
+        <ul>
+          <li>
+            <strong>Opcional:</strong> Marca la casilla situada junto a "URL
+            corta" para crear un enlace de página web más corto.
+          </li>
+        </ul>
+      </li>
+      <li>Copia y pega el enlace donde quieras compartir el mapa.</li>
+    </ol>
+
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3857.449878714295!2d-89.54847768488737!3d14.799988176126446!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTTCsDQ3JzU5LjkiTiA4OcKwMzInNDYuNiJX!5e0!3m2!1ses!2sgt!4v1595622937560!5m2!1ses!2sgt"
+      width="600"
+      height="450"
+      frameborder="0"
+      style="border: 0;"
+      allowfullscreen=""
+      aria-hidden="false"
+      tabindex="0"
+    ></iframe>
+    <hr />
+
+    <h2>Comience con la plataforma Google Maps</h2>
+    <div class="devsite-article-body clearfix">
+      <h2 id="overview" data-text="Overview" tabindex="0">
+        <font style="vertical-align: inherit;"
+          ><font style="vertical-align: inherit;">Visión general</font></font
+        >
+      </h2>
+
+      <p>
+        <font style="vertical-align: inherit;"
+          ><font style="vertical-align: inherit;"
+            >Google Maps Platform es un conjunto de API y SDK que se administran
+            desde la consola Google Cloud (también conocida como Cloud Console). </font
+          ><font style="vertical-align: inherit;"
+            >Para comenzar con Google Maps Platform, necesita:</font
+          ></font
+        >
+      </p>
+
+      <ol>
+        <li>
+          <font style="vertical-align: inherit;"
+            ><font style="vertical-align: inherit;"
+              >Crea una cuenta de facturación</font
+            ></font
+          >
+        </li>
+        <li>
+          <font style="vertical-align: inherit;"
+            ><font style="vertical-align: inherit;"
+              >Crear un proyecto
+            </font></font
+          >
+        </li>
+        <li>
+          <font style="vertical-align: inherit;"
+            ><font style="vertical-align: inherit;"
+              >Habilite una o más API o SDK</font
+            ></font
+          >
+        </li>
+        <li>
+          <font style="vertical-align: inherit;"
+            ><font style="vertical-align: inherit;"
+              >Obtener, agregar y restringir una clave API</font
+            ></font
+          >
+        </li>
+      </ol>
+
+      <p>
+        <font style="vertical-align: inherit;"
+          ><font style="vertical-align: inherit;"
+            >Sus opciones para completar estos procedimientos dependen de si es
+            un usuario nuevo o un usuario actual de Cloud Console.
+          </font></font
+        >
+      </p>
+
+      <p>
+        <strong
+          ><font style="vertical-align: inherit;"
+            ><font style="vertical-align: inherit;">Nuevo usuario</font></font
+          ></strong
+        ><font style="vertical-align: inherit;"
+          ><font style="vertical-align: inherit;">
+            : un nuevo usuario es un cliente que
+          </font></font
+        ><em
+          ><font style="vertical-align: inherit;"
+            ><font style="vertical-align: inherit;">nunca</font></font
+          ></em
+        ><font style="vertical-align: inherit;"
+          ><font style="vertical-align: inherit;"> ha </font
+          ><font style="vertical-align: inherit;"
+            >usado la consola de nube para crear una cuenta de facturación o un
+            proyecto. </font
+          ><font style="vertical-align: inherit;"
+            >Si es un usuario nuevo, use el </font
+          ><a href="#procedures"
+            ><font style="vertical-align: inherit;">Inicio </font></a
+          ></font
+        ><a href="#quickstart"
+          ><font style="vertical-align: inherit;"
+            ><font style="vertical-align: inherit;">rápido</font></font
+          ></a
+        ><font style="vertical-align: inherit;"
+          ><font style="vertical-align: inherit;"> o consulte los </font></font
+        ><a href="#procedures"
+          ><font style="vertical-align: inherit;"
+            ><font style="vertical-align: inherit;"
+              >Procedimientos iniciales</font
+            ></font
+          ></a
+        ><font style="vertical-align: inherit;"
+          ><font style="vertical-align: inherit;"> .</font></font
+        >
+      </p>
+
+      <p>
+        <strong
+          ><font style="vertical-align: inherit;"
+            ><font style="vertical-align: inherit;">Usuario actual</font></font
+          ></strong
+        ><font style="vertical-align: inherit;"
+          ><font style="vertical-align: inherit;">
+            : Un usuario actual es un cliente que ha utilizado previamente la
+            Consola de nube para crear una cuenta de facturación y / o un
+            proyecto. </font
+          ><font style="vertical-align: inherit;"
+            >Si es un usuario actual, consulte los
+          </font></font
+        ><a href="#procedures"
+          ><font style="vertical-align: inherit;"
+            ><font style="vertical-align: inherit;"
+              >Procedimientos iniciales</font
+            ></font
+          ></a
+        ><font style="vertical-align: inherit;"
+          ><font style="vertical-align: inherit;"> . </font
+          ><font style="vertical-align: inherit;"
+            >(Si intenta utilizar el Inicio rápido, será redirigido a la Consola
+            de nube).</font
+          ></font
+        >
+      </p>
+
+      <h2 id="quickstart" data-text="Quickstart" tabindex="0">
+        <font style="vertical-align: inherit;"
+          ><font style="vertical-align: inherit;">Inicio rápido</font></font
+        >
+      </h2>
+      <aside class="note">
+        <b
+          ><font style="vertical-align: inherit;"
+            ><font style="vertical-align: inherit;">Nota:</font></font
+          ></b
+        ><font style="vertical-align: inherit;"
+          ><font style="vertical-align: inherit;">
+            Solo para usuarios nuevos.
+          </font></font
+        >
+      </aside>
+
+      <p>
+        <font style="vertical-align: inherit;"
+          ><font style="vertical-align: inherit;"
+            >Para comenzar, haga clic en el botón Comenzar a continuación. </font
+          ><font style="vertical-align: inherit;"
+            >Se lo guiará a (1) elegir uno o más productos, (2) seleccionar o
+            crear un proyecto, (3) configurar una cuenta de facturación y
+            habilitar las API asociadas con los productos que eligió.</font
+          ></font
+        >
+      </p>
+
+      <a
+        href="https://cloud.google.com/maps-platform/?_ga=2.205260760.912596203.1595623214-1157797202.1595623214#get-started"
+        class="gc-analytics-event button button-blue"
+        data-category="GMPgetStarted"
+        data-label="quickstart"
+        data-action="buttonClick: quickstart"
+        target="_blank"
+        ><font style="vertical-align: inherit;"
+          ><font style="vertical-align: inherit;">Empezar</font></font
+        ></a
+      >
+
+      <p>
+        <font style="vertical-align: inherit;"
+          ><font style="vertical-align: inherit;"
+            >Al final del proceso, se creará una clave API para usted. </font
+          ><font style="vertical-align: inherit;"
+            >Para agregar y restringir su clave API, consulte
+          </font></font
+        ><a href="#api-key"
+          ><font style="vertical-align: inherit;"
+            ><font style="vertical-align: inherit;"
+              >Obtener, Agregar y restringir una clave API</font
+            ></font
+          ></a
+        ><font style="vertical-align: inherit;"
+          ><font style="vertical-align: inherit;"> .</font></font
+        >
+      </p>
+
+      <h2 id="procedures" data-text="Get Started Procedures" tabindex="0">
+        <font style="vertical-align: inherit;"
+          ><font style="vertical-align: inherit;"
+            >Procedimientos iniciales</font
+          ></font
+        >
+      </h2>
+      <aside class="note">
+        <b
+          ><font style="vertical-align: inherit;"
+            ><font style="vertical-align: inherit;">Nota:</font></font
+          ></b
+        ><font style="vertical-align: inherit;"
+          ><font style="vertical-align: inherit;">
+            para usuarios nuevos o usuarios actuales.
+          </font></font
+        >
+      </aside>
+      <p>
+        <font style="vertical-align: inherit;"
+          ><font style="vertical-align: inherit;"
+            >Las instrucciones en esta sección describen cómo usar la Consola de
+            la nube para realizar los procedimientos de inicio.</font
+          ></font
+        >
+      </p>
+
+      <p>
+        <font style="vertical-align: inherit;"
+          ><font style="vertical-align: inherit;"
+            >Nota: A medida que continúe su trabajo de desarrollo, puede
+            regresar a la Consola de la nube para realizar cualquiera de estos
+            procedimientos, según sea necesario (por ejemplo, puede crear una
+            cuenta de facturación adicional u obtener una segunda clave
+            API).</font
+          ></font
+        >
+      </p>
+    </div>
+    <hr />
+  </body>
+</html>

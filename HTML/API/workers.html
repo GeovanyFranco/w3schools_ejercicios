@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Workers</title>
+  </head>
+  <body>
+    <p>Contador: <output id="resultado"></output></p>
+    <button onclick="inicio()">Iniciar</button>
+    <button onclick="parar()">Parar</button>
+
+    <p>
+      <strong>Nota:</strong> Internet Explorer 9 y versiones anteriores no
+      soportan workers.
+    </p>
+
+    <script>
+      var w;
+
+      function inicio() {
+        if (typeof Worker !== "undefined") {
+          if (typeof w == "undefined") {
+            w = new Worker("demo_workers.js");
+          }
+          w.onmessage = function (event) {
+            document.getElementById("resultado").innerHTML = event.data;
+          };
+        } else {
+          document.getElementById("resultado").innerHTML =
+            "Su navegador no soporta Workers...";
+        }
+      }
+
+      function parar() {
+        w.terminate();
+        w = andefined;
+      }
+    </script>
+  </body>
+</html>

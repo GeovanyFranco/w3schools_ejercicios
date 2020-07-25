@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Otros</title>
+  </head>
+  <body>
+    <h1>Latitud y longitud</h1>
+    <hr />
+    <button onclick="getLocation()">Obtener posicion</button>
+    <p id="demo"></p>
+
+    <script>
+      var x = document.getElementById("demo");
+      function getLocation() {
+        if (navigator.geolocation) {
+          navigator.geolocation.watchPosition(showPosition);
+        } else {
+          x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+      }
+      function showPosition(position) {
+        x.innerHTML =
+          "latitude: " +
+          position.coords.latitude +
+          "<br>longitude: " +
+          position.coords.longitude +
+          "<br>accuracy: " +
+          position.coords.accuracy +
+          "<br>altitude: " +
+          position.coords.altitude +
+          "<br>altitudeAccuracy: " +
+          position.coords.altitudeAccuracy +
+          "<br>heading: " +
+          position.coords.heading +
+          "<br>speed: " +
+          position.coords.speed +
+          "<br>timestamp: " +
+          position.timestamp +
+          "<hr>Inicia tiempo real watchPosition" +
+          "<br>Detiene tiempo real clearPosition";
+      }
+    </script>
+  </body>
+</html>

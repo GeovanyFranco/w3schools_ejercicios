@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Errores</title>
+  </head>
+  <body>
+    <h1>Loingitud y latitud con deteccion de errores</h1>
+    <hr />
+    <p>Click sobre el boton para obtener tus coordenadas</p>
+    <button onclick="getLocation()">Obtener coordenadas</button>
+
+    <p id="demo"></p>
+
+    <script>
+      var x = document.getElementById("demo");
+
+      function getLocation() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(showPosition, showError);
+        } else {
+          x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+      }
+
+      function showPosition(position) {
+        x.innerHTML =
+          "Latitude: " +
+          position.coords.latitude +
+          "<br>Longitude: " +
+          position.coords.longitude;
+      }
+
+      function showError(error) {
+        switch (error.code) {
+          case error.PERMISSION_DENIED:
+            x.innerHTML = "Permiso de geolocalizacion denegado por el usuario.";
+            break;
+          case error.POSITION_UNAVAILABLE:
+            x.innerHTML = "Localizacion indisponible.";
+            break;
+          case error.TIMEOUT:
+            x.innerHTML = "Tiempo de espera agotado";
+            break;
+          case error.UNKNOWN_ERROR:
+            x.innerHTML = "A ocurrido un error desconocido.";
+            break;
+        }
+      }
+    </script>
+  </body>
+</html>
